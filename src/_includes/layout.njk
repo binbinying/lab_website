@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
 </head>
 <body>
+  {% if heroTitle %}
+    {% include "hero.njk" %}
+  {% endif %}
+
 <nav class="container">
   <a href="{{ '/' | url }}">Home</a> | 
   <a href="{{ '/about/' | url }}">About</a> |

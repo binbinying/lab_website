@@ -1,6 +1,7 @@
 ---
-title: Ying Lab
+title: Welcome
 layout: layout.njk
+heroTitle: Welcome to Ying Lab!
 ---
 
 # Welcome to Ying Lab 🧪

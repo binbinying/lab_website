@@ -1,9 +1,8 @@
 module.exports = function (eleventyConfig) {
-  // Copy static assets
   eleventyConfig.addPassthroughCopy("src/documents");
 
   return {
-    pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/",
+    pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/lab_website/",
     dir: {
       input: "src",
       output: "_site",

@@ -22,9 +22,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set destination dir
+        id: set-dir
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
+            echo "DEST=dev" >> "$GITHUB_OUTPUT"
+          else
+            echo "DEST=." >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build site with Eleventy
         run: |
-          if [ "${{ github.ref }}" == "refs/heads/develop" ]; then
+          if [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
             ELEVENTY_PATH_PREFIX="/dev/" npm run build
           else
             ELEVENTY_PATH_PREFIX="/" npm run build
@@ -35,4 +44,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          destination_dir: ${{ github.ref == 'refs/heads/develop' && 'dev' || '.' }}
+          destination_dir: ${{ steps.set-dir.outputs.DEST }}

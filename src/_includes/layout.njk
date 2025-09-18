@@ -7,6 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <!-- Link your main stylesheet -->
   <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
+  {% if title == "Chat" %}
+    <link rel="stylesheet" href="{{ '/styles/chat.css' | url }}">
+    <script src="{{ '/scripts/chat.js' | url }}"></script>
+  {% endif %}
 </head>
 <body>
   {% include "hero.njk" %}
@@ -14,7 +18,8 @@
 <nav class="container">
   <a href="{{ '/' | url }}">Home</a> | 
   <a href="{{ '/about/' | url }}">About</a> |
-  <a href="{{ '/people/' | url }}">People</a>
+  <a href="{{ '/people/' | url }}">People</a> |
+  <a href="{{ '/chat/' | url }}">Chat</a>
 </nav>
 
 <div class="container">

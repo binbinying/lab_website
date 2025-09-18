@@ -1,0 +1,52 @@
+<div id="chat-box" style="border:1px solid #ccc;padding:1rem;margin:1rem 0;height:300px;overflow:auto;"></div>
+
+<input id="user-input" type="text" placeholder="Ask me anything..." style="width:80%;" />
+<button onclick="sendMessage()">Send</button>
+
+<script>
+  async function sendMessage() {
+    const input = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
+    const userText = input.value;
+
+    if (!userText.trim()) return;
+
+    // Append user message
+    const userDiv = document.createElement('div');
+    userDiv.textContent = 'You: ' + userText;
+    chatBox.appendChild(userDiv);
+
+    // Clear input
+    input.value = '';
+
+    try {
+      // Standardize on "prompt" field (server accepts other fields too)
+      const res = await fetch('http://localhost:5000/api/rag', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: userText })
+    });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => null);
+        throw new Error(`Server error ${res.status}: ${text || res.statusText}`);
+      }
+
+      const data = await res.json();
+
+      // show parsed reply or raw payload for debugging
+      const botText = data.answer || '[No reply]';
+
+      const botDiv = document.createElement('div');
+      botDiv.textContent = 'Bot: ' + botText;
+      chatBox.appendChild(botDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+    } catch (err) {
+      const errorDiv = document.createElement('div');
+      errorDiv.textContent = 'Error: ' + err.message;
+      chatBox.appendChild(errorDiv);
+      console.error('Chat frontend error:', err);
+    }
+  }
+</script>

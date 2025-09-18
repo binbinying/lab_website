@@ -3,10 +3,11 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: {
-      input: "src",         // <-- Tell Eleventy to look in /src
+      input: "src",
       output: "_site",
-      includes: "_includes" // <-- _includes is under /src/_includes
+      includes: "_includes"
     },
+    pathPrefix: "/lab_website/", // ✅ Important for correct URLs
     templateFormats: ["md", "njk"],
     markdownTemplateEngine: "njk"
   };

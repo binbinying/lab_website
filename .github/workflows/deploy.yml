@@ -25,10 +25,18 @@ jobs:
       - name: Build site with Eleventy
         run: npm run build
 
+      - name: Set deployment subdirectory
+        id: deploy_dir
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "develop" ]]; then
+            echo "dir=dev" >> $GITHUB_OUTPUT
+          else
+            echo "dir=." >> $GITHUB_OUTPUT
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          # Deploy `develop` branch to dev/ folder, else root
-          destination_dir: ${{ github.ref == 'refs/heads/develop' && 'dev' || '.' }}
+          destination_dir: ${{ steps.deploy_dir.outputs.dir }}

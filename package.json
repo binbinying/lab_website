@@ -1,23 +1,21 @@
 {
   "name": "lab_website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Personal academic lab website built with Eleventy",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/binbinying/lab_website.git"
+    "url": "https://github.com/binbinying/lab_website.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["eleventy", "11ty", "academic", "lab", "website"],
+  "author": "Binbin Ying",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/binbinying/lab_website/issues"
   },
-  "homepage": "https://github.com/binbinying/lab_website#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
   }

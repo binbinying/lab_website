@@ -23,15 +23,11 @@ jobs:
         run: npm ci
 
       - name: Build site with Eleventy
-        run: npm run build
-
-      - name: Set deployment subdirectory
-        id: deploy_dir
         run: |
-          if [[ "${GITHUB_REF##*/}" == "develop" ]]; then
-            echo "dir=dev" >> $GITHUB_OUTPUT
+          if [ "${{ github.ref }}" == "refs/heads/develop" ]; then
+            ELEVENTY_PATH_PREFIX="/dev/" npm run build
           else
-            echo "dir=." >> $GITHUB_OUTPUT
+            ELEVENTY_PATH_PREFIX="/" npm run build
           fi
 
       - name: Deploy to GitHub Pages
@@ -39,4 +35,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          destination_dir: ${{ steps.deploy_dir.outputs.dir }}
+          destination_dir: ${{ github.ref == 'refs/heads/develop' && 'dev' || '.' }}

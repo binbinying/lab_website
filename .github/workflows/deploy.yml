@@ -32,12 +32,9 @@ jobs:
           fi
 
       - name: Build site with Eleventy
-        run: |
-          if [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
-            ELEVENTY_PATH_PREFIX="/dev/" npm run build
-          else
-            ELEVENTY_PATH_PREFIX="/" npm run build
-          fi
+        run: npm run build
+        env:
+          ELEVENTY_PATH_PREFIX: ${{ github.ref == 'refs/heads/develop' && '/dev/' || '/' }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

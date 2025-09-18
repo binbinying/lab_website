@@ -1,11 +1,13 @@
 module.exports = function (eleventyConfig) {
+  // Copy static assets
   eleventyConfig.addPassthroughCopy("src/documents");
 
   return {
+    pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/",
     dir: {
-      input: "src",         // <-- Tell Eleventy to look in /src
+      input: "src",
       output: "_site",
-      includes: "_includes" // <-- _includes is under /src/_includes
+      includes: "_includes"
     },
     templateFormats: ["md", "njk"],
     markdownTemplateEngine: "njk"

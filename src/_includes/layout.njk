@@ -5,9 +5,10 @@
   <title>{{ title }}</title>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a> | <a href="/about/">About</a>
-  </nav>
+<nav>
+  <a href="{{ '/' | url }}">Home</a> | 
+  <a href="{{ '/about/' | url }}">About</a>
+</nav>
 
   <main>
     {{ content | safe }}

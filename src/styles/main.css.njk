@@ -1,3 +1,8 @@
+---
+permalink: /styles/main.css
+eleventyExcludeFromCollections: true
+---
+
 /* Apply IBM Plex Sans site-wide */
 body {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -37,7 +42,7 @@ nav a:hover {
   padding: 0 1.5rem;
 }
 .hero {
-  background: url('/lab_website/images/hero.jpg'); /* full path on GitHub Pages */
+  background: url('{{ "/images/hero.jpg" | url }}');
   background-size: cover;
   background-position: center;
   height: 60vh;

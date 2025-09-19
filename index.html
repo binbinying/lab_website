@@ -2,18 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ying Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <!-- Link IBM Plex Sans from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="/lab_website/styles/main.css">
 </head>
+
 <body>
-<nav>
-  <a href="/lab_website/">Home</a> | 
-  <a href="/lab_website/about/">About</a>
+<nav class="nav-bar">
+  <div class="nav-logo-container">
+    <a href="/lab_website/">
+      <img src="/lab_website/images/logo.png" class="nav-logo" alt="YING LAB Logo">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="/lab_website/research/">RESEARCH</a>
+    <a href="/lab_website/people/">PEOPLE</a>
+    <a href="/lab_website/publications/">PUBLICATIONS</a>
+    <a href="/lab_website/news/">LATEST NEWS</a>
+    <a href="/lab_website/contact/">CONTACT</a>
+  </div>
 </nav>
 
+  <div class="hero" style="background-image: url('/lab_website/images/hero.gif');">
+  <div class="hero-overlay">
+    <h1 class="hero-title"></h1>
+  </div>
+</div>
+
+<div class="container">
   <main>
-    <h1>Welcome to Ying Lab 🧪</h1>
-<p>We build soft mucosa-interfacing medical devices.</p>
+    
+<div class="welcome-section container">
+  <h1>Welcome to the Ying Lab</h1>
+  
+  <p>
+    At the Ying Lab, we design next-generation soft medical devices that seamlessly interface with biological tissues for diagnostics and therapeutics. Our interdisciplinary team combines mechanical engineering, bioelectronics, and translational medicine to tackle real-world clinical challenges.
+  </p>
+
+  <p>
+    Our current projects explore novel electroadhesive hydrogels for long-term mucosal sensing, ingestible bioelectronics for gastrointestinal health, and soft robotic systems for minimally invasive interventions.
+  </p>
+
+  <div class="welcome-image">
+    <img src="/lab_website/images/labgroup.jpg" alt="Ying Lab group photo">
+    <p class="caption">Ying Lab group photo, Spring 2025.</p>
+  </div>
+
+  <h2>Recent Highlights</h2>
+  <ul class="highlight-links">
+    <li><a href="/lab_website/publications/">Read our latest paper in <em>Science Translational Medicine</em></a></li>
+    <li><a href="/lab_website/news/">See photos from our BMES 2025 conference trip</a></li>
+    <li><a href="/lab_website/about/">Explore our research themes</a></li>
+  </ul>
+</div>
 
   </main>
+</div>
 </body>
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-left">
+      <p><strong>Contact us</strong></p>
+      <p>Address placeholder</p>
+      <p>Phone: .,,</p>
+      <p>&copy; 2025 Ying Lab. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <p>Designed by vivelagarfield</p>
+    </div>
+  </div>
+</footer>
 </html>

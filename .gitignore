@@ -1,0 +1,9 @@
+# Eleventy output
+_site/
+
+# Node modules
+node_modules/
+
+
+.DS_Store
+.env
